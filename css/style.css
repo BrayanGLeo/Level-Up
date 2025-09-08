@@ -62,7 +62,7 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background-image: url('https://i.imgur.com/x0RjT5t.png');
+    background-image: url('./img/Fondo.png');
     background-size: cover;
     background-position: center;
     text-align: center;
