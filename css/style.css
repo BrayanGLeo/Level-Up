@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     background-color: #000000;
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -25,8 +25,10 @@ h1, h2, h3 {
 
 /* Header */
 header {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #000000;
     position: fixed;
+    top: 0;     
+    left: 0;     
     width: 100%;
     z-index: 1000;
 }
@@ -62,12 +64,14 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background-image: url('./img/Fondo.png');
-    background-size: cover;
+    background-image: url('../img/Fondo.png');
+    background-size: 100% auto;
     background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
-    padding: 150px 0;
+    padding: 330px 0;
     margin-top: 60px;
+    position: relative;
 }
 
 .hero-title {
@@ -83,7 +87,7 @@ header nav ul li a:hover {
 
 .btn {
     background-color: #1E90FF;
-    color: #FFFFFF;
+    color: #ffffff;
     padding: 12px 25px;
     text-decoration: none;
     font-weight: bold;
@@ -254,4 +258,29 @@ footer {
 .popup-content p {
     font-size: 1.1rem;
     margin-bottom: 15px;
+}
+
+.hero .container {
+    position: static;
+}
+
+.hero-title, .hero-text, .hero .btn {
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 80%; 
+}
+
+.hero-title {
+    top: 1%; 
+}
+
+.hero-text {
+    top: 76%; 
+    margin: 0 auto; 
+}
+
+.hero .btn {
+    top: 87%; 
+    width: 15%
 }
