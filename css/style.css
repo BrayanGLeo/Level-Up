@@ -85,6 +85,31 @@ header nav ul li a:hover {
     margin: 20px auto;
 }
 
+.hero .container {
+    position: static;
+}
+
+.hero-title, .hero-text, .hero .btn {
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 80%; 
+}
+
+.hero-title {
+    top: 1%; 
+}
+
+.hero-text {
+    top: 76%; 
+    margin: 0 auto; 
+}
+
+.hero .btn {
+    top: 87%; 
+    width: 15%
+}
+
 .btn {
     background-color: #1E90FF;
     color: #ffffff;
@@ -260,27 +285,71 @@ footer {
     margin-bottom: 15px;
 }
 
-.hero .container {
-    position: static;
+/* Blog Styles */
+.blog-main {
+    padding-top: 100px; 
 }
 
-.hero-title, .hero-text, .hero .btn {
-    position: absolute; 
-    left: 50%;
-    transform: translateX(-50%); 
-    width: 80%; 
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.hero-title {
-    top: 1%; 
+.blog-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #1E90FF;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hero-text {
-    top: 76%; 
-    margin: 0 auto; 
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(30, 144, 255, 0.3);
 }
 
-.hero .btn {
-    top: 87%; 
-    width: 15%
+.blog-card-img {
+    width: 55%;
+    height: 200px;
+    object-fit: cover;
+    display: block;;
+    right: 50%;
+}
+
+.blog-card h3 {
+    font-size: 1.5rem;
+    margin: 15px 15px 10px;
+    color: #39FF14;
+}
+
+.blog-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 15px 15px;
+    color: #D3D3D3;
+}
+
+.blog-meta {
+    font-size: 0.85rem;
+    color: #888;
+    margin: 0 15px 10px;
+}
+
+.btn-small {
+    display: inline-block;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 0 15px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-small:hover {
+    background-color: #39FF14;
 }
