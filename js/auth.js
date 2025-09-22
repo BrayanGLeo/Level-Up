@@ -86,7 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            alert('Inicio de sesión exitoso.');
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Validaciones del PDF para el Login
+            const correosValidos = /@(duoc.cl|profesor.duoc.cl|gmail.com)$/;
+            if (!correosValidos.test(email)) {
+                alert('Error: Solo se permiten correos con dominio @duoc.cl, @profesor.duoc.cl o @gmail.com.');
+                return;
+            }
+
+            if (password.length < 4 || password.length > 10) {
+                alert('Error: La contraseña debe tener entre 4 y 10 caracteres.');
+                return;
+            }
+            
+            // Si las validaciones pasan:
+            alert('¡Inicio de sesión exitoso!');
+            localStorage.setItem('sesionIniciada', 'true');
             window.location.href = '../index.html';
         });
     }
