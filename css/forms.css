@@ -30,11 +30,16 @@
 .form-group input, .form-group select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #39FF14;
+    border: 1px solid #39FF14; 
     background-color: #000000;
     color: #FFFFFF;
     border-radius: 5px;
     box-sizing: border-box;
+    transition: border-color 0.3s ease; 
+}
+
+.form-group input.input-error {
+    border-color: #FF3914; 
 }
 
 .form-group small {
