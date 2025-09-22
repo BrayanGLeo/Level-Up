@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos - Admin</title>
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2 class="admin-logo">ADMIN</h2>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="../index-admin.html">🏠 Inicio</a></li>
+                    <li class="active"><a href="listar-productos.html">📦 Productos</a></li>
+                    <li><a href="listar-usuarios.html">👥 Usuarios</a></li>
+                    <li><a href="../index.html">🌐 Volver a la Tienda</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="admin-header">
+                <h1>Productos</h1>
+                <a href="nuevo-producto.html" class="btn-admin">Nuevo Producto</a>
+            </header>
+            <section class="admin-table-container">
+                <table id="tabla-productos">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="../js/admin-scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Producto - Admin</title>
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2 class="admin-logo">ADMIN</h2>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="../index-admin.html">🏠 Inicio</a></li>
+                    <li><a href="listar-productos.html">📦 Productos</a></li>
+                    <li><a href="listar-usuarios.html">👥 Usuarios</a></li>
+                    <li><a href="../index.html">🌐 Volver a la Tienda</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="admin-header">
+                <h1>Nuevo Producto</h1>
+            </header>
+            <section class="admin-form-container">
+                <form id="nuevoProductoForm" novalidate>
+                    <input type="hidden" id="editIndex">
+                    <div class="form-group">
+                        <label for="codigo">Código Producto:</label>
+                        <input type="text" id="codigo" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio:</label>
+                        <input type="number" id="precio" step="0.01" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="stock">Stock:</label>
+                        <input type="number" id="stock" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="juegos">Juegos de Mesa</option>
+                            <option value="accesorios">Accesorios</option>
+                            <option value="consolas">Consolas</option>
+                        </select>
+                        <span class="error-message"></span>
+                    </div>
+                    <button type="submit" class="btn-admin">Guardar Producto</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="../js/admin-scripts.js"></script>
+</body>
+</html>

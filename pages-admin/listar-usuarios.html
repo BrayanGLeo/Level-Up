@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios - Admin</title>
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2 class="admin-logo">ADMIN</h2>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="../index-admin.html">🏠 Inicio</a></li>
+                    <li><a href="listar-productos.html">📦 Productos</a></li>
+                    <li class="active"><a href="listar-usuarios.html">👥 Usuarios</a></li>
+                    <li><a href="../index.html">🌐 Volver a la Tienda</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="admin-header">
+                <h1>Usuarios</h1>
+                <a href="nuevo-usuario.html" class="btn-admin">Nuevo Usuario</a>
+            </header>
+            <section class="admin-table-container">
+                <table id="tabla-usuarios">
+                    <thead>
+                        <tr>
+                            <th>RUN</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="../js/admin-scripts.js"></script>
+</body>
+</html>

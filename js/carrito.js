@@ -45,17 +45,12 @@ document.querySelectorAll('.add-to-cart').forEach(boton => {
         });
     }
 
-    // Dibuja el carrito al cargar la página correspondiente
     mostrarCarrito();
-
-// --- FUNCIONES GLOBALES (ACCESIBLES DESDE EL HTML) ---
 
 function cerrarSesion() {
     localStorage.removeItem('sesionIniciada');
     alert("¡Has cerrado sesión exitosamente!");
 }
-
-// --- FUNCIONES INTERNAS DEL SCRIPT ---
 
 function actualizarNavegacion() {
     const sesionIniciada = localStorage.getItem('sesionIniciada');

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Usuario - Admin</title>
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <h2 class="admin-logo">ADMIN</h2>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="../index-admin.html">🏠 Inicio</a></li>
+                    <li><a href="listar-productos.html">📦 Productos</a></li>
+                    <li><a href="listar-usuarios.html">👥 Usuarios</a></li>
+                    <li><a href="../index.html">🌐 Volver a la Tienda</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="admin-header">
+                <h1>Nuevo Usuario</h1>
+            </header>
+            <section class="admin-form-container">
+                <form id="nuevoUsuarioForm" novalidate>
+                    <input type="hidden" id="editIndex">
+                    <div class="form-group">
+                        <label for="run">RUN:</label>
+                        <input type="text" id="run" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" required>
+                        <span class="error-message"></span>
+                    </div>
+                    <button type="submit" class="btn-admin">Registrar</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="../js/admin-scripts.js"></script>
+</body>
+</html>
