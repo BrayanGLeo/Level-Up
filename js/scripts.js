@@ -93,14 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closePopupButton) {
         closePopupButton.addEventListener('click', () => {
             welcomePopup.classList.add('hidden');
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         });
     }
 
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         });
     }
 
@@ -219,17 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const nombreUsuario = document.getElementById('nombre').value;
             alert(`¡Gracias por tu compra, ${nombreUsuario}!\nTu pedido ha sido realizado con éxito.`);
             localStorage.removeItem('carrito');
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         });
     }
-
-
-
-
-
-
-
-
-
-
 });
