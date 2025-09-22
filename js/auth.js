@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (registerForm) {
         registerForm.addEventListener('submit', function (event) {
             event.preventDefault();
+            let hasError = false;
 
             // Función original para marcar y limpiar
             function markAndClearError(elementId, message) {
@@ -102,8 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Si todas las validaciones son exitosas:
-            welcomePopup.classList.remove('hidden');
+            if (!hasError) {
+                localStorage.setItem('isLoggedIn', 'true');
+                welcomePopup.classList.remove('hidden');
+            }
         });
     }
 
@@ -141,13 +144,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('El correo o la contraseña no son válidos. Recuerda que solo se admiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com.');
                 return;
             }
-
+            
+            localStorage.setItem('isLoggedIn', 'true');
             if (loginSuccessPopup) {
                 loginSuccessPopup.classList.remove('hidden');
             }
         });
     }
-    
+
     if (closeLoginPopupButton) {
         closeLoginPopupButton.addEventListener('click', () => {
             loginSuccessPopup.classList.add('hidden');
