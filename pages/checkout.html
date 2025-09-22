@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Level-Up Gamer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">LEVEL-UP GAMER</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="carrito.html">🛒 Volver al Carrito</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="form-container">
+        <section class="checkout-section">
+            <div class="container">
+                <h2 class="section-title">Detalles de la Compra</h2>
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <h3>1. Datos Personales</h3>
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" required>
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" required>
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <h3>2. Forma de Entrega</h3>
+                        <select id="metodo-entrega" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="retiro">Retiro en Tienda</option>
+                            <option value="despacho">Despacho a Domicilio</option>
+                        </select>
+                        <div id="direccion-despacho" class="hidden">
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" id="direccion">
+                            <label for="ciudad">Ciudad:</label>
+                            <input type="text" id="ciudad">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h3>3. Método de Pago</h3>
+                        <select id="metodo-pago" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="webpay">Webpay (Tarjeta de Crédito/Débito)</option>
+                            <option value="transferencia">Transferencia Bancaria</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Realizar Pedido</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Level-Up Gamer. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>

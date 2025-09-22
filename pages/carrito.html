@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Level-Up Gamer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">LEVEL-UP GAMER</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="login.html">Iniciar Sesión</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="section-catalogo">
+            <div class="container">
+                <h2 class="section-title">Mi Carrito</h2>
+                
+                <div id="carrito-container">
+                    </div>
+
+                <div id="carrito-vacio" class="hidden">
+                    <p>Tu carrito está vacío. <a href="catalogo.html">¡Vamos a llenarlo!</a></p>
+                </div>
+                
+                <div id="carrito-acciones" class="hidden">
+                    <div class="carrito-acciones-container">
+                        <h3>Total: <span id="total-precio">$0 CLP</span></h3>
+                        <div class="carrito-botones">
+                            <button id="vaciar-carrito" class="btn btn-danger">Vaciar Carrito</button>
+                            <a href="checkout.html" class="btn">Finalizar Compra</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Level-Up Gamer. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
