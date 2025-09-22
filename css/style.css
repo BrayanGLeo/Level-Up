@@ -610,3 +610,64 @@ footer {
     display: flex;
     gap: 1rem;
 }
+
+/* Styles for Contact Page */
+.main-content {
+    padding-top: 80px; /* Adjust based on your header height */
+}
+
+.about-us-section, .contact-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.about-us-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #D3D3D3;
+}
+
+.contact-info-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.contact-info, .contact-social {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #1E90FF;
+    min-width: 300px;
+}
+
+.contact-info h3, .contact-social h3 {
+    color: #39FF14; /* Neon green color */
+    margin-top: 0;
+}
+
+.contact-info ul, .contact-social ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.contact-info ul li, .contact-social ul li {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.contact-info a, .contact-social a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover, .contact-social a:hover {
+    color: #39FF14;
+    text-decoration: underline;
+}
