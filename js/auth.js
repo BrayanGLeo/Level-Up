@@ -8,21 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
         registerForm.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // --- CÓDIGO DE VALIDACIÓN RESTAURADO ---
-
             // Función para marcar el campo con error y limpiarlo
             function markAndClearError(elementId, message) {
                 const element = document.getElementById(elementId);
                 element.style.borderColor = '#FF3914';
-                if (message) { // Solo muestra alerta si hay mensaje
+                if (message) { 
                     alert(message);
                 }
                 if (element.type !== 'password') {
                     element.value = '';
                 }
             }
-
-            // Función para limpiar errores visuales (solo cambia el color)
+            
             function clearVisualErrors() {
                 const inputs = document.querySelectorAll('#registerForm input');
                 inputs.forEach(input => {
@@ -32,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             clearVisualErrors();
 
-            // Validar nombres y apellidos
+            // Valida los nombres y apellidos
             const namesInput = document.getElementById('names');
             const surnamesInput = document.getElementById('surnames');
             const namesValue = namesInput.value.trim();
@@ -49,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Validar RUT
+            // Valida el RUT
             const rutInput = document.getElementById('rut');
             const rutValue = rutInput.value.trim();
             const rutRegex = /^[0-9]{7,8}-[0-9kK]{1}$/;
@@ -59,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Validar la edad (mayor de 18 años)
+            // Valida la edad (mayor de 18 años)
             const birthdateInput = document.getElementById('birthdate');
             if (!birthdateInput.value) {
                 markAndClearError('birthdate', 'Por favor, ingresa tu fecha de nacimiento.');
@@ -79,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Validar el formato del correo electrónico
+            // Validaa el formato del correo electrónico
             const emailInput = document.getElementById('email');
             const emailValue = emailInput.value;
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -89,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // Validar que las contraseñas coincidan
+            // Valida que las contraseñas coincidan
             const passwordInput = document.getElementById('password');
             const confirmPasswordInput = document.getElementById('confirm-password');
             
@@ -100,11 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (passwordInput.value !== confirmPasswordInput.value) {
                 markAndClearError('password', 'Las contraseñas no coinciden. Por favor, verifica los campos.');
-                markAndClearError('confirm-password', ''); // No muestra alerta duplicada
+                markAndClearError('confirm-password', ''); 
                 return;
             }
-
-            // --- FIN DEL CÓDIGO RESTAURADO ---
 
             // Si todas las validaciones son exitosas, muestra el popup:
             welcomePopup.classList.remove('hidden');
@@ -121,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            // Aquí podrías agregar validaciones para el login también si quisieras
             alert('Inicio de sesión exitoso.');
             window.location.href = '../index.html';
         });
