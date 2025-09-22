@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomePopup = document.getElementById('welcome-message');
     const closePopupButton = document.getElementById('close-popup');
     const loginForm = document.getElementById('loginForm');
+    const loginSuccessPopup = document.getElementById('login-success-message');
+    const closeLoginPopupButton = document.getElementById('close-login-popup');
 
     if (registerForm) {
         registerForm.addEventListener('submit', function (event) {
@@ -15,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (message) {
                     alert(message);
                 }
-                // No se borra el contenido para mejorar la experiencia, excepto contraseñas.
                 if (element.type === 'password') {
                     element.value = '';
                 }
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             clearVisualErrors();
 
-            // 1. Valida los nombres
+            // Valida los nombres
             const namesInput = document.getElementById('names');
             const namesValue = namesInput.value.trim();
             if (namesValue === '' || !/^[a-zA-Z\s]+$/.test(namesValue) || namesValue.length < 3) {
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // 2. Valida los apellidos
+            // Valida los apellidos
             const surnamesInput = document.getElementById('surnames');
             const surnamesValue = surnamesInput.value.trim();
             if (surnamesValue === '' || !/^[a-zA-Z\s]+$/.test(surnamesValue) || surnamesValue.length < 3) {
@@ -46,14 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // 3. Valida el RUT
+            // Valida el RUT
             const rutInput = document.getElementById('rut');
             if (!/^[0-9]{7,8}-[0-9kK]{1}$/.test(rutInput.value.trim())) {
                 markAndClearError('rut', 'Por favor, ingresa un RUT válido (Ej: 12345678-9).');
                 return;
             }
 
-            // 4. Validar edad (LÓGICA CORREGIDA DENTRO DE TU ESTRUCTURA)
+            // Valida la  edad
             const birthdateInput = document.getElementById('birthdate');
             if (!birthdateInput.value) {
                 markAndClearError('birthdate', 'Por favor, ingresa tu fecha de nacimiento.');
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // 5. Valida el formato del correo electrónico
+            // Valida el formato del correo electrónico
             const emailInput = document.getElementById('email');
             const emailValue = emailInput.value.trim();
             const emailRegex = /^[^\s@]+@((duoc\.cl)|(profesor\.duoc\.cl)|(gmail\.com))$/;
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // 6. Valida que las contraseñas coincidan
+            //  Valida que las contraseñas coincidan
             const passwordInput = document.getElementById('password');
             const confirmPasswordInput = document.getElementById('confirm-password');
 
@@ -96,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (passwordInput.value !== confirmPasswordInput.value) {
                 markAndClearError('password', 'Las contraseñas no coinciden.');
                 markAndClearError('confirm-password', '');
-                // Borramos solo las contraseñas si no coinciden
                 passwordInput.value = '';
                 confirmPasswordInput.value = '';
                 return;
@@ -115,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (loginForm) {
-        // ... (La lógica del login se mantiene igual) ...
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
             let hasError = false;
@@ -143,7 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            alert('Inicio de sesión exitoso.');
+            if (loginSuccessPopup) {
+                loginSuccessPopup.classList.remove('hidden');
+            }
+        });
+    }
+    
+    if (closeLoginPopupButton) {
+        closeLoginPopupButton.addEventListener('click', () => {
+            loginSuccessPopup.classList.add('hidden');
             window.location.href = '../index.html';
         });
     }
