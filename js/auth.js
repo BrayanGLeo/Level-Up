@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const emailRegex = /^[^\s@]+@((duoc\.cl)|(profesor\.duoc\.cl)|(gmail\.com))$/;
 
             if (!emailRegex.test(emailValue)) {
-                markAndClearError('email', 'Por favor, ingresa un correo electrónico con un formato válido (ej. yo@duocuc.cl).');
+                markAndClearError('email', 'El correo no es válido. Solo se permiten dominios @duoc.cl, @profesor.duoc.cl y @gmail.com.');
                 return;
             }
 
