@@ -1,21 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loginLogoutLink = document.getElementById('login-logout-link');
-    if (!loginLogoutLink) return;
+    const loginNavItem = document.getElementById('login-nav-item');
+    const profileNavItem = document.getElementById('profile-nav-item');
+    const logoutButton = document.getElementById('logout-button');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (!loginNavItem || !profileNavItem) return;
 
-    if (isLoggedIn === 'true') {
-        loginLogoutLink.textContent = 'Cerrar Sesión';
-        loginLogoutLink.style.cursor = 'pointer';
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-        loginLogoutLink.addEventListener('click', (event) => {
+    if (currentUser) {
+        loginNavItem.classList.add('hidden');
+        profileNavItem.classList.remove('hidden');
+        if (dropdownToggle) {
+            dropdownToggle.textContent = `Hola, ${currentUser.name}`;
+        }
+    } else {
+        loginNavItem.classList.remove('hidden');
+        profileNavItem.classList.add('hidden');
+    }
+
+    if (dropdownToggle && dropdownMenu) {
+        dropdownToggle.addEventListener('click', (event) => {
             event.preventDefault();
-            
-            // Se limpia el estado de la sesión
-            localStorage.removeItem('isLoggedIn');
+            dropdownMenu.classList.toggle('show');
+        });
+    }
+    
+    window.addEventListener('click', function(event) {
+        if (dropdownMenu && !profileNavItem.contains(event.target)) {
+            dropdownMenu.classList.remove('show');
+        }
+    });
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            localStorage.removeItem('currentUser');
             alert('Has cerrado la sesión.');
             
-            // Redirige al inicio
             const isInsidePages = window.location.pathname.includes('/pages/');
             window.location.href = isInsidePages ? '../index.html' : 'index.html';
         });

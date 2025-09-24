@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             let hasError = false;
 
-            // Función original para marcar y limpiar
             function markAndClearError(elementId, message) {
                 const element = document.getElementById(elementId);
                 element.style.borderColor = '#FF3914';
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // Valida el formato del correo electrónico
+            // Valida el correo electrónico
             const emailInput = document.getElementById('email');
             const emailValue = emailInput.value.trim();
             const emailRegex = /^[^\s@]+@((duoc\.cl)|(profesor\.duoc\.cl)|(gmail\.com))$/;
@@ -89,12 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
             //  Valida que las contraseñas coincidan
             const passwordInput = document.getElementById('password');
             const confirmPasswordInput = document.getElementById('confirm-password');
-
             if (passwordInput.value.length < 6) {
                 markAndClearError('password', 'La contraseña debe tener al menos 6 caracteres.');
                 return;
             }
-
             if (passwordInput.value !== confirmPasswordInput.value) {
                 markAndClearError('password', 'Las contraseñas no coinciden.');
                 markAndClearError('confirm-password', '');
@@ -102,59 +99,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 confirmPasswordInput.value = '';
                 return;
             }
-
-            if (!hasError) {
-                localStorage.setItem('isLoggedIn', 'true');
-                welcomePopup.classList.remove('hidden');
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            if (users.find(user => user.email === emailValue)) {
+                alert('Este correo electrónico ya está registrado.');
+                return;
             }
-        });
-    }
 
-    if (closePopupButton) {
-        closePopupButton.addEventListener('click', () => {
-            welcomePopup.classList.add('hidden');
-            window.location.href = '../index.html';
+            const newUser = {
+                name: namesInput.value.trim(),
+                surname: surnamesInput.value.trim(),
+                email: emailValue,
+                password: passwordInput.value
+            };
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+
+            if (welcomePopup) welcomePopup.classList.remove('hidden');
         });
     }
 
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            let hasError = false;
-
-            const inputs = loginForm.querySelectorAll('input');
-            inputs.forEach(input => input.classList.remove('input-error'));
-
-            const emailInput = document.getElementById('email');
-            const emailValue = emailInput.value.trim();
-            const emailRegex = /^[^\s@]+@((duoc\.cl)|(profesor\.duoc\.cl)|(gmail\.com))$/;
-
-            if (!emailRegex.test(emailValue)) {
-                emailInput.classList.add('input-error');
-                hasError = true;
-            }
-
-            const passwordInput = document.getElementById('password');
-            if (passwordInput.value.trim() === '') {
-                passwordInput.classList.add('input-error');
-                hasError = true;
-            }
-
-            if (hasError) {
-                alert('El correo o la contraseña no son válidos. Recuerda que solo se admiten correos @duoc.cl, @profesor.duoc.cl y @gmail.com.');
-                return;
-            }
             
-            localStorage.setItem('isLoggedIn', 'true');
-            if (loginSuccessPopup) {
-                loginSuccessPopup.classList.remove('hidden');
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const users = JSON.parse(localStorage.getItem('users')) || [];           
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                if (loginSuccessPopup) loginSuccessPopup.classList.remove('hidden');
+            } else {
+                alert('Correo o contraseña incorrectos. Por favor, verifica tus datos o regístrate.');
             }
+        });
+    }
+
+    if (closePopupButton) {
+        closePopupButton.addEventListener('click', () => {
+            window.location.href = '../index.html';
         });
     }
 
     if (closeLoginPopupButton) {
         closeLoginPopupButton.addEventListener('click', () => {
-            loginSuccessPopup.classList.add('hidden');
             window.location.href = '../index.html';
         });
     }
