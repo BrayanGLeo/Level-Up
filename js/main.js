@@ -5,16 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    if (!loginNavItem || !profileNavItem) return;
+    if (!loginNavItem || !profileNavItem) {
+        return;
+    }
 
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     if (currentUser) {
         loginNavItem.classList.add('hidden');
         profileNavItem.classList.remove('hidden');
+        
         if (dropdownToggle) {
             dropdownToggle.textContent = `Hola, ${currentUser.name}`;
         }
+
     } else {
         loginNavItem.classList.remove('hidden');
         profileNavItem.classList.add('hidden');
@@ -28,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     window.addEventListener('click', function(event) {
-        if (dropdownMenu && !profileNavItem.contains(event.target)) {
+        if (dropdownMenu && profileNavItem && !profileNavItem.contains(event.target)) {
             dropdownMenu.classList.remove('show');
         }
     });
