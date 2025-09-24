@@ -32,7 +32,6 @@ document.querySelectorAll('.add-to-cart').forEach(boton => {
         });
     }
 
-    // Manejar clics para sumar o restar productos DENTRO del carrito
     const carritoContainer = document.getElementById('carrito-container');
     if (carritoContainer) {
         carritoContainer.addEventListener('click', (evento) => {

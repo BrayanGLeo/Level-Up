@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Simulando el arreglo JS complementario para Regiones y Comunas
     const regionesYComunas = {
         "Biobío": ["Concepción", "Los Ángeles", "Talcahuano", "Coronel", "Chiguayante", "Hualpén"],
         "Metropolitana": ["Santiago", "Maipú", "Puente Alto", "La Florida", "Las Condes", "Ñuñoa"],
