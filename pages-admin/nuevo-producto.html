@@ -36,6 +36,11 @@
                         <span class="error-message"></span>
                     </div>
                     <div class="form-group">
+                        <label for="descripcion">Descripción (Opcional):</label>
+                        <textarea id="descripcion" rows="4"></textarea>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
                         <label for="precio">Precio:</label>
                         <input type="number" id="precio" step="0.01" required>
                         <span class="error-message"></span>
@@ -46,6 +51,11 @@
                         <span class="error-message"></span>
                     </div>
                     <div class="form-group">
+                        <label for="stockCritico">Stock Crítico (Opcional):</label>
+                        <input type="number" id="stockCritico">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
                         <label for="categoria">Categoría:</label>
                         <select id="categoria" required>
                             <option value="">Selecciona una categoría</option>
@@ -53,6 +63,11 @@
                             <option value="accesorios">Accesorios</option>
                             <option value="consolas">Consolas</option>
                         </select>
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagen">URL Imagen (Opcional):</label>
+                        <input type="text" id="imagen">
                         <span class="error-message"></span>
                     </div>
                     <button type="submit" class="btn-admin">Guardar Producto</button>
