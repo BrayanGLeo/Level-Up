@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito - Level-Up Gamer</title>
+    <title>Mi Perfil - Level-Up Gamer</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/carrito.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/perfil.css">
 </head>
 <body>
     <header>
@@ -18,7 +17,7 @@
                     <li><a href="catalogo.html">Catálogo</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
-                    <li id="login-nav-item" class="hidden"><a href="login.html">Iniciar Sesión</a></li>
+                    <li id="login-nav-item"><a href="login.html">Iniciar Sesión</a></li>
                     <li id="profile-nav-item" class="dropdown hidden">
                         <a href="#" class="dropdown-toggle">Mi Cuenta</a>
                         <div class="dropdown-menu">
@@ -33,37 +32,36 @@
             </nav>
         </div>
     </header>
-    <main>
-        <section class="section-catalogo">
+
+    <main class="main-content">
+        <section class="profile-section">
             <div class="container">
-                <h2 class="section-title">Mi Carrito</h2>
-                
-                <div id="carrito-container">
+                <h2 class="section-title">Mi Perfil</h2>
+                <div class="profile-container">
+                    <div class="profile-picture-container">
+                        <img src="https://via.placeholder.com/150" alt="Foto de perfil" id="profile-pic">
+                        <input type="file" id="file-input" class="hidden">
+                        <button class="btn" id="change-pic-btn">Cambiar Foto</button>
                     </div>
-
-                <div id="carrito-vacio" class="hidden">
-                    <p>Tu carrito está vacío. <a href="catalogo.html">¡Vamos a llenarlo!</a></p>
-                </div>
-                
-                <div id="carrito-acciones" class="hidden">
-                    <div class="carrito-acciones-container">
-                        <h3>Total: <span id="total-precio">$0 CLP</span></h3>
-                        <div class="carrito-botones">
-                            <button id="vaciar-carrito" class="btn btn-danger">Vaciar Carrito</button>
-                            <a href="checkout.html" class="btn">Finalizar Compra</a>
-                        </div>
+                    <div class="profile-details">
+                        <h3>Nombre de Usuario</h3>
+                        <p id="user-name">Brayan Osses</p>
+                        <h3>Correo Electrónico</h3>
+                        <p id="user-email">b.osses@profesor.duoc.cl</p>
+                        <h3>Miembro Desde</h3>
+                        <p id="user-since">Septiembre 2025</p>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>
+
     <footer>
         <div class="container">
             <p>&copy; 2025 Level-Up Gamer. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <script src="../js/carrito.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/perfil.js"></script>
 </body>
 </html>

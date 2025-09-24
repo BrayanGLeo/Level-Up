@@ -19,9 +19,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
         checkoutForm.addEventListener('submit', (evento) => {
             evento.preventDefault();
-            const nombreUsuario = document.getElementById('nombre').value;
-            alert(`¡Gracias por tu compra, ${nombreUsuario}!\nTu pedido ha sido realizado con éxito.`);
+
+            const cart = JSON.parse(localStorage.getItem('carrito')) || [];
+            if (cart.length === 0) {
+                alert("Tu carrito está vacío.");
+                return;
+            }
+
+            const orderNumber = Date.now();
+            const orderDate = new Date().toLocaleDateString('es-CL');
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            
+            const newOrder = {
+                number: orderNumber,
+                date: orderDate,
+                items: cart,
+                total: total,
+                customer: {
+                    name: document.getElementById('nombre').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('telefono').value,
+                }
+            };
+
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            orders.push(newOrder);
+            localStorage.setItem('orders', JSON.stringify(orders));
+
             localStorage.removeItem('carrito');
+
+            alert(`¡Gracias por tu compra, ${newOrder.customer.name}!\nTu pedido #${orderNumber} ha sido realizado con éxito.`);
             window.location.href = '../index.html';
         });
     }
