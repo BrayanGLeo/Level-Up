@@ -115,7 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('users', JSON.stringify(users));
             localStorage.setItem('currentUser', JSON.stringify(newUser));
 
-            if (welcomePopup) welcomePopup.classList.remove('hidden');
+            if (emailValue.endsWith('@profesor.duoc.cl')) {
+                alert('Cuenta de administrador registrada con éxito.');
+                window.location.href = '../index-admin.html';
+            } else {
+                if (welcomePopup) welcomePopup.classList.remove('hidden');
+            }
         });
     }
 
@@ -130,7 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (user) {
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                if (loginSuccessPopup) loginSuccessPopup.classList.remove('hidden');
+                if (user.email.endsWith('@profesor.duoc.cl')) {
+                    alert('Inicio de sesión de administrador exitoso.');
+                    window.location.href = '../index-admin.html';
+                } else {
+                    if (loginSuccessPopup) loginSuccessPopup.classList.remove('hidden');
+                }
             } else {
                 alert('Correo o contraseña incorrectos. Por favor, verifica tus datos o regístrate.');
             }
